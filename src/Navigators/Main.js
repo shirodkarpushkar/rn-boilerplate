@@ -1,6 +1,7 @@
 import React from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { IndexExampleContainer } from '@/Containers'
+import Icon from 'react-native-vector-icons/Ionicons'
 
 const Tab = createBottomTabNavigator()
 
@@ -8,7 +9,15 @@ const Tab = createBottomTabNavigator()
 const MainNavigator = () => {
   return (
     <Tab.Navigator>
-      <Tab.Screen name="Home" component={IndexExampleContainer} />
+      <Tab.Screen
+        name="Home"
+        component={IndexExampleContainer}
+        options={{
+          tabBarIcon: tabInfo => (
+            <Icon name="ios-home" size={25} color={tabInfo.color} />
+          ),
+        }}
+      />
     </Tab.Navigator>
   )
 }
